@@ -20,9 +20,8 @@ public class UserRepository {
     }
 
     @Transactional
-    public void addNew(User user1, User user2) {
-        entityManager.merge(user1);
-        entityManager.merge(user2);
+    public void addNew(User user) {
+        entityManager.merge(user);
     }
 
     public User getById(Long id) {

@@ -22,12 +22,13 @@ public class Hibernate2Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         userRepository.save(new User("Katty", "Perry", "katty@gmail", 32));
-        userRepository.addNew(new User(2L, "Mark", "Bolt", "mark@mail.ua", 43),
-                new User(3L, "Simona", "Freedom", "simona@gukrnet", 95));
+        userRepository.addNew(new User(2L, "Mark", "Bolt", "mark@mail.ua", 43));
+        userRepository.addNew(new User(3L, "Simona", "Freedom", "simona@gukrnet", 95));
         System.out.println(userRepository.getById(1L));
         userRepository.getByEmail("mark@mail.ua").forEach(System.out::println);
         userRepository.updateUser(new User(1L, "Katty", "Perry", "katty@gmail", 35));
         userRepository.selectAll().forEach(System.out::println);
         userRepository.delete(1L);
+
     }
 }
